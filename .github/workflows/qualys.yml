@@ -1,6 +1,7 @@
 name: Qualys WAS Scan
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
 
 jobs:
   Qualys_was_scan:
