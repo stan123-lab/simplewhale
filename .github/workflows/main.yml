@@ -19,47 +19,51 @@ uses: actions/checkout@v3
 with:
 
 fetch-depth: 0
-            
-  # You may pin to the exact commit or the version.
-  # uses: Qualys/github-action-qwas@aaed9771cc7a5604510600b487ead99e712e9549
-  uses: Qualys/github-action-qwas@v1.0.0
-  with:
-    # Qualys Username
-    QUALYS_USERNAME: 
-    # Qualys Password
-    QUALYS_PASSWORD: 
-    # API Server URL
-    API_SERVER: 
-    # Scan Name
-    SCAN_NAME: 
-    # Scan Type
-    SCAN_TYPE: 
-    # Webapp ID
-    WEBAPP_ID: 
-    # Authentication Record
-    AUTH_RECORD: # optional
-    # Authentication Record ID
-    AUTH_RECORD_ID: # optional
-    # Option Profile
-    OPTION_PROFILE: # optional
-    # Option Profile ID
-    OPTION_PROFILE_ID: # optional
-    # Cancel Option
-    CANCEL_OPTION: # optional
-    # Cancel Hours
-    CANCEL_HOURS: # optional
-    # Severity Check
-    SEVERITY_CHECK: # optional
-    # Severity Level
-    SEVERITY_LEVEL: # optional
-    # Exclude
-    EXCLUDE: # optional
-    # Fail on Scan Error
-    FAIL_ON_SCAN_ERROR: # optional
-    # Wait for Result
-    WAIT_FOR_RESULT: # optional
-    # Interval
-    INTERVAL: # optional
-    # Timeout
-    TIMEOUT: # optional
-          
+
+- name: Qualys WAS scan action step
+
+uses: Qualys/github_action_qwas@main
+
+id: was
+
+with:
+
+API_SERVER: ${{ vars.API_SERVER }}
+
+QUALYS_USERNAME: ${{ vars.QUALYS_USERNAME }}
+
+QUALYS_PASSWORD: ${{ secrets.QUALYS_PASSWORD }}
+
+WEBAPP_ID: ${{ vars.WEBAPP_ID }}
+
+SCAN_NAME: ${{ vars.SCAN_NAME }}
+
+SCAN_TYPE: ${{ vars.SCAN_TYPE }}
+
+AUTH_RECORD: ${{ vars.AUTH_RECORD }}
+
+AUTH_RECORD_ID: ${{ vars.AUTH_RECORD_ID }}
+
+OPTION_PROFILE: ${{ vars.OPTION_PROFILE }}
+
+OPTION_PROFILE_ID: ${{ vars.OPTION_PROFILE_ID }}
+
+CANCEL_OPTION: ${{ vars.CANCEL_OPTION }}
+
+CANCEL_HOURS: ${{ vars.CANCEL_HOURS }}
+
+SEVERITY_CHECK: ${{ vars.SEVERITY_CHECK }}
+
+SEVERITY_LEVEL: ${{ vars.SEVERITY_LEVEL }}
+
+EXCLUDE: ${{ vars.EXCLUDE }}
+
+FAIL_ON_SCAN_ERROR: ${{ vars.FAIL_ON_SCAN_ERROR }}
+
+WAIT_FOR_RESULT: ${{ vars.WAIT_FOR_RESULT }}
+
+INTERVAL: ${{ vars.INTERVAL }}
+
+TIMEOUT: ${{ vars.TIMEOUT }}
+
+FILE_TYPE: ${{ vars.FILE_TYPE }}
